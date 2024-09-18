@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceCraft</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">VoiceCraft</h1>
+            <div>
+                <a href="#" class="text-gray-800 hover:text-blue-600 mx-3">Home</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 mx-3">Voices</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 mx-3">Pricing</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
+        <textarea id="textInput" placeholder="Enter your text here..." class="w-full h-40 p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div>
+                <label for="voiceSelect" class="block text-sm font-medium text-gray-700 mb-2">Voice:</label>
+                <select id="voiceSelect" class="w-full bg-white border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="default">Default</option>
+                    <option value="calm">Calm</option>
+                    <option value="cheerful">Cheerful</option>
+                    <option value="serious">Serious</option>
+                    <option value="excited">Excited</option>
+                </select>
+            </div>
+            <div>
+                <label for="speedSelect" class="block text-sm font-medium text-gray-700 mb-2">Speed:</label>
+                <select id="speedSelect" class="w-full bg-white border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="0.5">Slow</option>
+                    <option value="1" selected>Normal</option>
+                    <option value="1.5">Fast</option>
+                </select>
+            </div>
+            <div>
+                <label for="pitchSelect" class="block text-sm font-medium text-gray-700 mb-2">Pitch:</label>
+                <select id="pitchSelect" class="w-full bg-white border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="0.8">Low</option>
+                    <option value="1" selected>Normal</option>
+                    <option value="1.2">High</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex justify-center gap-4 mb-4">
+            <button id="playBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out">
+                Convert to Speech
+            </button>
+            <button id="pauseBtn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out">
+                Pause
+            </button>
+            <button id="clearBtn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out">
+                Clear Text
+            </button>
+        </div>
+        <div class="flex justify-center">
+            <button id="downloadBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out hidden">
+                Download Audio
+            </button>
+        </div>
+        <audio id="audioPlayer" controls class="w-full mt-4 hidden"></audio>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
